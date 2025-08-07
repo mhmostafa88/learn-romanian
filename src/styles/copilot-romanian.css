@@ -1,0 +1,213 @@
+/* Custom styling for Romanian Learning CopilotKit interface */
+
+.copilot-sidebar-romanian {
+  /* Romanian flag colors */
+  --copilot-primary: #002B7F; /* Blue */
+  --copilot-secondary: #FCD116; /* Yellow */
+  --copilot-accent: #CE1126; /* Red */
+}
+
+/* Custom message styling for Romanian tutor */
+.copilot-sidebar-romanian .copilot-message.assistant {
+  background: linear-gradient(135deg, #002B7F 0%, #1e40af 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  position: relative;
+}
+
+.copilot-sidebar-romanian .copilot-message.assistant::before {
+  content: '🇷🇴';
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* User message styling */
+.copilot-sidebar-romanian .copilot-message.user {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+/* Action buttons styling */
+.copilot-sidebar-romanian .copilot-action-button {
+  background: linear-gradient(135deg, #FCD116 0%, #f59e0b 100%);
+  color: #1f2937;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copilot-sidebar-romanian .copilot-action-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(252, 209, 22, 0.3);
+}
+
+/* Input field styling */
+.copilot-sidebar-romanian .copilot-input {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.copilot-sidebar-romanian .copilot-input:focus {
+  border-color: #002B7F;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 43, 127, 0.1);
+}
+
+/* Header styling */
+.copilot-sidebar-romanian .copilot-header {
+  background: linear-gradient(135deg, #002B7F 0%, #1e40af 100%);
+  color: white;
+  padding: 16px;
+  font-weight: 600;
+}
+
+/* Pronunciation feedback styling */
+.pronunciation-feedback {
+  background: #f0f9ff;
+  border: 1px solid #0284c7;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.pronunciation-score {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0284c7;
+}
+
+.pronunciation-suggestions {
+  margin-top: 8px;
+}
+
+.pronunciation-suggestions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pronunciation-suggestions li {
+  padding: 4px 0;
+  color: #374151;
+}
+
+.pronunciation-suggestions li::before {
+  content: '🔸';
+  margin-right: 8px;
+}
+
+/* Grammar feedback styling */
+.grammar-feedback {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.grammar-feedback.has-errors {
+  background: #fef2f2;
+  border-color: #f87171;
+}
+
+.grammar-feedback.no-errors {
+  background: #f0fdf4;
+  border-color: #4ade80;
+}
+
+/* Audio player styling */
+.audio-player-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.audio-play-button {
+  background: #002B7F;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.audio-play-button:hover {
+  background: #1e40af;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .copilot-sidebar-romanian {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1000;
+  }
+}
+
+/* Animation for new messages */
+@keyframes slideInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.copilot-sidebar-romanian .copilot-message {
+  animation: slideInMessage 0.3s ease-out;
+}
+
+/* Loading animation for AI responses */
+.copilot-thinking {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.copilot-thinking::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+} 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChatInterface } from "~/components/chat/ChatInterface";
+import { AgUIChatInterface } from "~/components/chat/AgUIChatInterface";
 
 export default function HomePage() {
   return (
@@ -11,15 +11,18 @@ export default function HomePage() {
         
         <div className="text-center">
           <p className="text-2xl text-white/80">
-            Practice Romanian conversation with your AI tutor
+            Practice Romanian with AG-UI Protocol
           </p>
           <p className="mt-2 text-lg text-white/60">
-            Exersează conversația în română cu tutorele tău AI
+            Real-time streaming with Mastra agents and event-driven communication
+          </p>
+          <p className="mt-1 text-sm text-white/50">
+            Powered by Mastra + AG-UI + CopilotKit
           </p>
         </div>
 
         <div className="w-full max-w-4xl">
-          <ChatInterface />
+          <AgUIChatInterface />
         </div>
 
         <div className="flex flex-col items-center gap-2">
