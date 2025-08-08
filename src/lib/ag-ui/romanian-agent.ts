@@ -66,7 +66,7 @@ export class RomanianTutorAgent {
       this.updateState(userMessage, conversationHistory);
 
       // Emit state snapshot
-      yield this.eventEncoder.createStateEvent(this.state as Record<string, unknown>);
+      yield this.eventEncoder.createStateEvent(this.state as unknown as Record<string, unknown>);
 
       // Analyze message and determine response strategy
       const messageAnalysis = await this.analyzeMessage(userMessage);
@@ -315,7 +315,7 @@ export class RomanianTutorAgent {
       "Great job using Romanian phrases!",
       "I love seeing you practice Romanian!",
     ];
-    return responses[Math.floor(Math.random() * responses.length)];
+    return responses[Math.floor(Math.random() * responses.length)] ?? "Great work!";
   }
 
   private getConversationalResponse(message: string, analysis: MessageAnalysis): string {

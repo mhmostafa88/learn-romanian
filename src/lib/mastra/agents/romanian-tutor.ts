@@ -4,7 +4,7 @@ import { openai } from '@ai-sdk/openai';
 import { z } from 'zod';
 import { Memory } from '@mastra/memory';
 
-// Initialize memory for this agent specifically
+// Initialize memory for this agent specifically  
 const memory = new Memory({
   options: {
     // Enable working memory to track user progress and preferences
@@ -28,7 +28,7 @@ const memory = new Memory({
 ## Preferences
 - Voice: ro-RO-AlinaNeural
 - Learning Pace: medium
-- Focus Areas: [pronunciation, grammar, culture]
+- Focus Areas: [vocabulary, pronunciation, grammar, culture]
 
 ## Current Session
 - Current Topic:
@@ -38,12 +38,12 @@ const memory = new Memory({
     },
     // Keep recent conversation history
     lastMessages: 10,
-    // Enable semantic recall for long-term memory
-    semanticRecall: {
-      topK: 3,
-      messageRange: 2,
-      scope: 'resource',
-    },
+    // Disable semantic recall for local playground (requires vector store configuration)
+    // semanticRecall: {
+    //   topK: 3,
+    //   messageRange: 2,
+    //   scope: 'resource',
+    // },
   },
 });
 
@@ -172,8 +172,8 @@ You are a patient and encouraging Romanian language tutor named "Profesor Român
 
 ## Response Guidelines:
 - Always respond warmly and encouragingly
-- For beginners: Start with Romanian, then provide English translation
-- For intermediate/advanced: Use more Romanian with minimal English
+- For beginners: Start with Romanian
+- For intermediate/advanced: Use more complex sentences and grammar
 - Include cultural insights about Romanian words, phrases, or customs
 - Encourage speaking practice and real-world usage
 - Use the tools proactively to enhance learning
@@ -191,6 +191,7 @@ Remember: Create an immersive but supportive Romanian learning environment that 
 export const romanianTutorAgent = new Agent({
   name: 'Romanian Tutor',
   instructions: ROMANIAN_TUTOR_INSTRUCTIONS,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   model: openai('gpt-4'), // Using OpenAI GPT-4 model
   tools: {
     'assess-pronunciation': pronunciationTool,
